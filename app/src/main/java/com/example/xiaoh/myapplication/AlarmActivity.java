@@ -8,9 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.Switch;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 
 public class AlarmActivity extends AppCompatActivity {
-    Alarm alarm;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +35,34 @@ public class AlarmActivity extends AppCompatActivity {
             }
         });
 
-        alarm = new Alarm("TEST");
+        Date now = new Date();
+        AlarmManager manager = new AlarmManager(new ArrayList<Alarm>()
+
+        );
+
+        for(int i = 0; i < 5; i++) {
+            int sec = 1000 * i * 2;
+            manager.addList(new Alarm("wake up " + i, new Date(now.getTime() + sec)));
+        }
+
+        LinearLayout alarmView = (LinearLayout) findViewById(R.id.Alarm_layout);
+
+        for(int i = 0; i < manager.size(); i++) {
+            Alarm a = manager.get(i);
+            View chunk = getLayoutInflater().inflate(R.layout.chunk_alarm, alarmView, false);
+
+            TextView time = chunk.findViewById(R.id.alarm_time);
+            time.setText(a.alarmDate.toString());
+            TextView name = chunk.findViewById(R.id.alarm_name);
+            name.setText(a.name);
+            Switch on = chunk.findViewById(R.id.alarm_isOn);
+            Switch temp = chunk.findViewById(R.id.alarm_isTemp);
+            on.setChecked(a.isOn);
+            temp.setChecked(a.isTemp);
+
+            alarmView.addView(chunk);
+        }
+
     }
 
     @Override

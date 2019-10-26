@@ -19,6 +19,13 @@ public class AlarmManager {
         list.add(alarm);
     }
 
+    AlarmManager(ArrayList<Alarm> alarms) {
+        this();
+        for (Alarm a : alarms) {
+            list.add(a);
+        }
+    }
+
     // addList function
     // adds alarms the user creates into the list
     public void addList(Alarm alarm) {
@@ -56,5 +63,13 @@ public class AlarmManager {
         }
 
         list.remove(i);
+    }
+
+    public int size() {
+        return list.size();
+    }
+
+    public Alarm get(int i) {
+        return list.get(i);
     }
 }
