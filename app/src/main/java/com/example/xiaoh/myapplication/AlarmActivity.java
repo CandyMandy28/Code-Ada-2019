@@ -55,9 +55,10 @@ public class AlarmActivity extends AppCompatActivity {
         AlarmManager manager = new AlarmManager(new ArrayList<Alarm>() );
 
         for(int i = 0; i < 5; i++) {
-            int sec = 1000 * i * 2;
+            int sec = 1000 * i * 60;
             manager.addList(new Alarm("wake up " + i, new Date(now.getTime() + sec)));
         }
+
 
         LinearLayout alarmView = (LinearLayout) findViewById(R.id.Alarm_layout);
 
@@ -66,7 +67,7 @@ public class AlarmActivity extends AppCompatActivity {
             View chunk = getLayoutInflater().inflate(R.layout.chunk_alarm, alarmView, false);
 
             TextView time = chunk.findViewById(R.id.alarm_time);
-            time.setText(a.alarmDate.toString());
+            time.setText(a.getFormattedTime(false));
             TextView name = chunk.findViewById(R.id.alarm_name);
             name.setText(a.name);
             Switch on = chunk.findViewById(R.id.alarm_isOn);

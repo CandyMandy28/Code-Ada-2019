@@ -5,20 +5,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="139dp"
         android:orientation="vertical">
+
+        <Switch
+            android:id="@+id/alarm_isOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On/Off" />
+
+        <Switch
+            android:id="@+id/alarm_isTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temporary Alarm" />
 
         <TextView
             android:id="@+id/alarm_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
-
-        <Switch
-            android:id="@+id/alarm_isOn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Switch" />
 
         <TextView
             android:id="@+id/alarm_name"
@@ -27,10 +33,5 @@
             android:gravity="center_vertical"
             android:text="Alam_name" />
 
-        <Switch
-            android:id="@+id/alarm_isTemp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Switch" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

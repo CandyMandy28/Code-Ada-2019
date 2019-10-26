@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Date;
 import java.lang.Math;
+import java.text.SimpleDateFormat;
 
 public class Alarm {
     public String name;
@@ -35,6 +36,18 @@ public class Alarm {
 
     public long getTime() {
         return alarmDate.getTime();
+    }
+
+    public String getFormattedTime(boolean military) {
+        SimpleDateFormat ft;
+
+        if(military) {
+            ft = new SimpleDateFormat ("kk:mm a");
+        } else {
+            ft = new SimpleDateFormat ("hh:mm a");
+        }
+
+        return ft.format(alarmDate);
     }
 
 
