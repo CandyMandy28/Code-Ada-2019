@@ -1,5 +1,6 @@
 # Alarm class
 # import sys
+from datetime import datetime
 
 class Alarm:
     
@@ -18,7 +19,10 @@ class Alarm:
     returns: whether or not it is time to ring the alarm
     """
     def runAlarm(custom_time = None):
-        
-        return True
-    
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        if current_time == self.time:
+            return True
+        else:
+            return False
     
