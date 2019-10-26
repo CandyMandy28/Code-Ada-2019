@@ -1,7 +1,7 @@
 # Code-Ada-2019
 
 A simple alarm clock program for Code Ada 2019
-
+<!--
 ## Setup & Installation
 1. Make sure you have python installed in your computer!
 1. Download this repository and store the folder where you want it to be
@@ -32,3 +32,4 @@ Run the command to pull from the repository:
 git pull origin master
 ```
 
+-->
