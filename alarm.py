@@ -2,16 +2,17 @@
 # import sys
 from datetime import datetime
 
-
 class Alarm:
     
     # initializer
     # constructor example: Alarm(time, True, True) 
-    def __init__(self, alarm_time, name="", isTemp = False):
+    def __init__(self, alarm_time, setName, isTemp = False, isRepeat = False):
         self.time = alarm_time
+        self.name = setName
         self.isTemp = isTemp
+        self.isRepeat = isRepeat
         self.isOn = True
-        self.name = name
+        # TODO: Snooze
     
     """ 
     isTime - whether it is the time to ring the alarm
