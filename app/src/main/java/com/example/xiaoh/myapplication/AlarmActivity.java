@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+<<<<<<< HEAD
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -18,6 +19,15 @@ import java.util.Date;
 
 public class AlarmActivity extends AppCompatActivity {
 
+=======
+import android.widget.TextView;
+
+import java.util.Date;
+
+public class AlarmActivity extends AppCompatActivity {
+    Alarm alarm;
+    AlarmManager alarmManager;
+>>>>>>> 6bf0ea3b22de954867fc806c41ddcd6095f162af
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +42,22 @@ public class AlarmActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                TextView text =  (TextView) findViewById(R.id.testView);
+                text.setText(alarmManager.findAlarm(1).name + alarmManager.findAlarm(1).isOn);
             }
         });
+    }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        alarmManager = new AlarmManager();
+        alarmManager.addList( new Alarm("TEST"));
+        Date today = new Date();
+        alarmManager.addList( new Alarm("T",new Date(today.getTime() + 10000)));
+
+<<<<<<< HEAD
         Date now = new Date();
         AlarmManager manager = new AlarmManager(new ArrayList<Alarm>()
 
@@ -63,6 +86,10 @@ public class AlarmActivity extends AppCompatActivity {
             alarmView.addView(chunk);
         }
 
+=======
+        TextView text =  (TextView) findViewById(R.id.testView);
+        text.setText(alarmManager.findAlarm(1).name + alarmManager.findAlarm(1).isOn);
+>>>>>>> 6bf0ea3b22de954867fc806c41ddcd6095f162af
     }
 
     @Override

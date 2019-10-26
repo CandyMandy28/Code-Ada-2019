@@ -37,7 +37,37 @@ public class Alarm {
         return alarmDate.getTime();
     }
 
+
+    public TimerTask scheduleFor(boolean willTurnOn) {
+        if(willTurnOn) {
+            return new TimerTask() {
+                @Override
+                public void run() {
+                    turnOn();
+                }
+            };
+        }
+        else {
+            return new TimerTask() {
+                @Override
+                public void run() {
+                    turnOff();
+                }
+            };
+        }
+    }
+
+    public void turnOn() {
+        isOn = true;
+    }
+
+    public void turnOff() {
+        isOn = false;
+    }
+
 //    public int compareTo(Alarm a) {
 //        return this.getTime().compareTo(a.getTime());
 //    }
+
+
 }
