@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-<<<<<<< HEAD
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -16,10 +15,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Date;
 
-
-public class AlarmActivity extends AppCompatActivity {
-
-=======
 import android.widget.TextView;
 
 import java.util.Date;
@@ -27,7 +22,6 @@ import java.util.Date;
 public class AlarmActivity extends AppCompatActivity {
     Alarm alarm;
     AlarmManager alarmManager;
->>>>>>> 6bf0ea3b22de954867fc806c41ddcd6095f162af
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +37,7 @@ public class AlarmActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 TextView text =  (TextView) findViewById(R.id.testView);
-                text.setText(alarmManager.findAlarm(1).name + alarmManager.findAlarm(1).isOn);
+                text.setText(alarmManager.get(1).name + alarmManager.get(1).isOn);
             }
         });
     }
@@ -57,11 +51,8 @@ public class AlarmActivity extends AppCompatActivity {
         Date today = new Date();
         alarmManager.addList( new Alarm("T",new Date(today.getTime() + 10000)));
 
-<<<<<<< HEAD
         Date now = new Date();
-        AlarmManager manager = new AlarmManager(new ArrayList<Alarm>()
-
-        );
+        AlarmManager manager = new AlarmManager(new ArrayList<Alarm>() );
 
         for(int i = 0; i < 5; i++) {
             int sec = 1000 * i * 2;
@@ -86,10 +77,8 @@ public class AlarmActivity extends AppCompatActivity {
             alarmView.addView(chunk);
         }
 
-=======
         TextView text =  (TextView) findViewById(R.id.testView);
-        text.setText(alarmManager.findAlarm(1).name + alarmManager.findAlarm(1).isOn);
->>>>>>> 6bf0ea3b22de954867fc806c41ddcd6095f162af
+        text.setText(alarmManager.get(1).name + alarmManager.get(1).isOn);
     }
 
     @Override

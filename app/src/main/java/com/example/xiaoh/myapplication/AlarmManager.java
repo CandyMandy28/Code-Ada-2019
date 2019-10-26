@@ -73,15 +73,11 @@ public class AlarmManager {
         list.remove(i);
     }
 
-<<<<<<< HEAD
     public int size() {
         return list.size();
     }
 
     public Alarm get(int i) {
-        return list.get(i);
-=======
-    public Alarm findAlarm(int i) {
         return list.get(i);
     }
 
@@ -92,6 +88,5 @@ public class AlarmManager {
             }
         }
         return new Alarm("NULL");
->>>>>>> 6bf0ea3b22de954867fc806c41ddcd6095f162af
     }
 }
