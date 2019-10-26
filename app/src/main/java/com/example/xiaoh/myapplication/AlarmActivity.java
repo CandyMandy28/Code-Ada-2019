@@ -8,9 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import java.util.Date;
 
 public class AlarmActivity extends AppCompatActivity {
     Alarm alarm;
+    AlarmManager alarmManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +29,23 @@ public class AlarmActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                TextView text =  (TextView) findViewById(R.id.testView);
+                text.setText(alarmManager.findAlarm(1).name + alarmManager.findAlarm(1).isOn);
             }
         });
+    }
 
-        alarm = new Alarm("TEST");
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        alarmManager = new AlarmManager();
+        alarmManager.addList( new Alarm("TEST"));
+        Date today = new Date();
+        alarmManager.addList( new Alarm("T",new Date(today.getTime() + 10000)));
+
+        TextView text =  (TextView) findViewById(R.id.testView);
+        text.setText(alarmManager.findAlarm(1).name + alarmManager.findAlarm(1).isOn);
     }
 
     @Override

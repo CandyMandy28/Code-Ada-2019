@@ -2,16 +2,21 @@ package com.example.xiaoh.myapplication;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Timer;
 
 // AlarmManager class - keeps track of alarms
 public class AlarmManager {
     // alarm list
     private ArrayList<Alarm> list;
+    private Timer t;
+    private ArrayList<Alarm> ongoingAlarms;
 
     // initializer
     // constructor
     AlarmManager() {
         list = new ArrayList<Alarm>();
+        t = new Timer();
+        ongoingAlarms = new ArrayList<Alarm>();
     }
 
     AlarmManager(Alarm alarm) {
@@ -22,6 +27,9 @@ public class AlarmManager {
     // addList function
     // adds alarms the user creates into the list
     public void addList(Alarm alarm) {
+        if(alarm.isOn) {
+            t.schedule(alarm.scheduleFor(false),alarm.alarmDate);
+        }
         // appends the alarm, putting in time order
         for (int i = 0; i < list.size() - 1; i++) {
             if ((alarm.getTime() > list.get(i).getTime()) && (alarm.getTime() < list.get(i + 1).getTime())) {
@@ -56,5 +64,18 @@ public class AlarmManager {
         }
 
         list.remove(i);
+    }
+
+    public Alarm findAlarm(int i) {
+        return list.get(i);
+    }
+
+    public Alarm findAlarm(String name) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).name == name) {
+                return list.get(i);
+            }
+        }
+        return new Alarm("NULL");
     }
 }
