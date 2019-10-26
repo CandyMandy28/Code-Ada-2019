@@ -49,7 +49,7 @@ try:
         sleep(seconds)
     print ("Wake up")
     for i in range(5):
-        print chr(7),
+        print (chr(7))
         sleep(1)
 except KeyboardInterrupt:
     print ("Interrupted by user")
