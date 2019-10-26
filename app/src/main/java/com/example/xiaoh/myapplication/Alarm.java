@@ -3,6 +3,7 @@ package com.example.xiaoh.myapplication;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Date;
+import java.lang.Math;
 
 public class Alarm {
     public String name;
@@ -35,4 +36,8 @@ public class Alarm {
     public long getTime() {
         return alarmDate.getTime();
     }
+
+//    public int compareTo(Alarm a) {
+//        return this.getTime().compareTo(a.getTime());
+//    }
 }
