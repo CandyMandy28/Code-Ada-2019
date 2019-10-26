@@ -16,3 +16,8 @@ try:
 except ImportError:
     print("Warning: `threading` must be installed in order to use `Code-Ada-2019`")
 
+try:
+    import datetime
+except ImportError:
+    print("Warning: `datetime` must be installed in order to use `Code-Ada-2019`")
+

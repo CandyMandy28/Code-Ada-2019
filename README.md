@@ -1,24 +1,29 @@
 # Code-Ada-2019
 
-An alarm clock program
+A simple alarm clock program for Code Ada 2019
 
-## Installation
+## Setup & Installation
 1. Make sure you have python installed in your computer!
 1. Download this repository and store the folder where you want it to be
 1. Open Command Prompt or Terminal and run 
 ```shell
 python setup.py develop
 ```
-1. If you're missing a module, run: 
+1. Run:
+```shell
+python main.py
+```
+### Missing Module
+If you're missing a module, run: 
 ```shell
 pip install module_name
 
 python -m pip install module_name
 ```
 
-## Updating Your Repository
+### Updating Your Repository
 
-Open Command Prompt and go to the repository directory.
+Open Command Prompt/Terminal and go to the repository directory.
 ```shell
 cd "C:\PATH\TO\REPO\asu_code"
 ```
